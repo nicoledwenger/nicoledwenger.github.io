@@ -125,7 +125,6 @@ const ProjectOverlay = styled.div`
   opacity: 0;
   transition: 0.5s ease;
   background-color: rgba(225,225,225,0.6);
-  border-radius: 5px;
 `;
 
 const ProjectText = styled.div`
@@ -210,8 +209,7 @@ const IndexPage = ({ data }) => {
                 fluid={node.frontmatter.featuredImage.childImageSharp.fluid} 
                 alt={node.frontmatter.title}
                 style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}
+                  boxShadow: '0px 4px 10px 0 #efefef'}}
                  /> 
 
             <ProjectOverlay>

@@ -2,6 +2,7 @@
 title: Calaveras State Park
 featuredImage: ../images/calaveras.png
 year: 2019
+type: Web
 objective: This site was developed for a group project in CGT 353 at Purdue University. The goal of this site was to create a customized, appealing layout and design for a California state park. As state and national parks in the Unites States have a simplistic, consistent appearance across all parks, we wanted to create a more specialized experience to attract visitors.
 role1: Designer
 role2: Developer

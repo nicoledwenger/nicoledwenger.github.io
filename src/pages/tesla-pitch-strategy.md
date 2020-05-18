@@ -2,6 +2,7 @@
 title: Tesla Pitch Strategy
 featuredImage: ../images/tesla_strategy.png
 year: 2020
+type: Branding
 objective: This pitch strategy was created for COM 257 at Purdue University as coursework. This strategy required research into Tesla’s brand, voice, and competitors to propose four strategies for implementation in 2021. The campaign strategies had four main objectives, to generate buzz, generate sales, attract new audiences, and propose media outlets.
 role1: Researcher
 role2: Strategist

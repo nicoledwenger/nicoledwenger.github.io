@@ -10,21 +10,22 @@ import CallToAction from "../components/text/CallToAction"
 import WorkSubHeading from '../components/text/WorkSubHeading'
 
 
-const ProjectYear = styled(Paragraph)`
-  text-align: right;
-  margin-top: -60px;
-  padding-bottom: 20px;
+const DescriptionText = styled(Paragraph)`
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
 
-  @media (max-width: ${breakpoints.mobileMax}) {
-    text-align: left;
+  :nth-last-child(2) {
+    margin-bottom: 25px;
   }
 `;
 
 const ProjectContainer = styled.div`
     width: 100%;
-    margin-top: 20%;
+    margin-top: 15%;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-end;
 
     @media (max-width: ${breakpoints.mobileMax}) {
       display: block;
@@ -34,7 +35,7 @@ const ProjectContainer = styled.div`
 
 const Container = styled.div` 
   width: 45%;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
   transition-duration: 0.3s;
 
   :nth-child(odd) {
@@ -50,10 +51,22 @@ const Container = styled.div`
 }
 `;
 
+const FeaturedImage = styled.img`
+  position: absolute;
+  max-width: 50%;
+  left: 0;
+  top: 15%;
+
+  @media (max-width: ${breakpoints.mobileMax}) {
+    position: fixed;
+    max-width: 100vw;
+  }
+`;
+
 
 export default ({ data }) => {
     let post = data.markdownRemark
-    let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+    let featuredImgFluid = post.frontmatter.featuredImage.publicURL
     let image1Fluid = post.frontmatter.image1.childImageSharp.fluid
     let image2Fluid = post.frontmatter.image2.childImageSharp.fluid
     let image3Fluid = post.frontmatter.image3.childImageSharp.fluid
@@ -61,43 +74,38 @@ export default ({ data }) => {
       <Layout key={post.id}>
         <div>
           <ProjectContainer>
-            <Container> 
-              <Heading style={{marginTop: '0'}}>{post.frontmatter.title}</Heading>
-              <CallToAction dangerouslySetInnerHTML={{ __html: post.html }}></CallToAction>
-            </Container>
-            <Container>
-              <ProjectYear>{post.frontmatter.year}</ProjectYear>
-              <Img 
-              fluid={featuredImgFluid} 
+
+          <Container>
+              <FeaturedImage 
+              src={featuredImgFluid} 
               alt={post.frontmatter.title} 
               style={{ 
-                boxShadow: '0px 4px 10px 0 #efefef',
-                borderRadius: '5px'}}/>
+                boxShadow: '0px 4px 10px 0 #efefef'}}/>
             </Container>
 
-            <WorkSubHeading>Project Objective</WorkSubHeading>
-            <Paragraph style={{marginBottom: '70px'}}>{post.frontmatter.objective}</Paragraph>
+            <Container> 
+              <Heading style={{marginTop: '0'}}>{post.frontmatter.title}</Heading>
+              <DescriptionText>{post.frontmatter.type} - {post.frontmatter.year} </DescriptionText>
+              <DescriptionText>{post.frontmatter.role1} / {post.frontmatter.role2} / {post.frontmatter.role3} </DescriptionText>
+              <CallToAction dangerouslySetInnerHTML={{ __html: post.html }}></CallToAction>
+            </Container>
+
+           
+            <Container>
+              <WorkSubHeading>About this Project</WorkSubHeading>
+            </Container>
+
+            <Container>
+              <Paragraph>{post.frontmatter.objective}</Paragraph>
+              <Paragraph>{post.frontmatter.results}</Paragraph>
+            </Container>
             
            <Container>
                <Img 
                 fluid={image1Fluid} 
                 alt="First example photo"
                 style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}/> 
-            </Container>
-            <Container>
-
-            <WorkSubHeading>Roles</WorkSubHeading>
-            <Paragraph>{post.frontmatter.role1}</Paragraph>
-            <Paragraph>{post.frontmatter.role2}</Paragraph>
-            <Paragraph>{post.frontmatter.role3}</Paragraph>
-
-            <WorkSubHeading>Project Results</WorkSubHeading>
-            <Paragraph>{post.frontmatter.results}</Paragraph>
-
-            
-
+                  boxShadow: '0px 4px 10px 0 #efefef'}}/> 
             </Container>
 
             <Container>
@@ -105,8 +113,7 @@ export default ({ data }) => {
                 fluid={image2Fluid} 
                 alt="Second example photo"
                 style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}/> 
+                  boxShadow: '0px 4px 10px 0 #efefef'}}/> 
             </Container>
 
             <Container>
@@ -114,8 +121,7 @@ export default ({ data }) => {
                 fluid={image3Fluid} 
                 alt="Third example photo"
                 style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}/> 
+                  boxShadow: '0px 4px 10px 0 #efefef'}}/> 
             </Container>
           </ProjectContainer>
           </div>
@@ -129,6 +135,7 @@ export const query = graphql`
       id
       html
       frontmatter {
+        type
         objective
         results
         role1
@@ -137,11 +144,7 @@ export const query = graphql`
         title
         year
         featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
         image1 {
           childImageSharp {

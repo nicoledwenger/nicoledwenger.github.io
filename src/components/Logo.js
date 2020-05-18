@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 const LogoImg = styled.div`
   position: fixed;
   top: 0;
-  left: 0px;
+  left: 0%;
   background-image: url(${logo});
   width: 100px;
   height: 50px;

@@ -7,17 +7,10 @@ import "typeface-open-sans"
 import { breakpoints } from "./Breakpoints"
 
 const NavContainer = styled.div`
-  width: 100vh;
-  height: 80px;
+  width: 100vw;
+  height: 50px;
   position: fixed;
-  transform-origin: 0 0;
-  transform: rotate(-90deg) translateX(-100%);
-  margin-left: 15px;
-  top: 70px;
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    display: none;
-  }
+  top: 15px;
 `;
 
 const MainNavigationUl = styled.ul`
@@ -39,6 +32,7 @@ const MainNavigation = styled(Link)`
   font-weight: 700;
   text-align: center;
   transition: 0.3s ease;
+  font-size: 0.85rem;
 
   :hover{
     text-decoration: none;
