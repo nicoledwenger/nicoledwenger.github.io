@@ -1,6 +1,6 @@
 ---
-title: Digital Art
-featuredImage: ../images/jdm.png
+title: Sketch Collection
+featuredImage: ../images/features/sketches.png
 year: 2020
 type: Graphics
 objective: When I create digital art, it improves my design competency and skills. I utilize techniques in Adobe Illustrator and Photoshop to create graphics. I take the time to experiment other design styles in font, color, and composition combinations.

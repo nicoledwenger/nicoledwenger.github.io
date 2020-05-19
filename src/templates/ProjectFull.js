@@ -14,15 +14,11 @@ const DescriptionText = styled(Paragraph)`
   font-style: italic;
   font-size: 0.85rem;
   margin-bottom: 5px;
-
-  :nth-last-child(2) {
-    margin-bottom: 25px;
-  }
 `;
 
 const ProjectContainer = styled.div`
     width: 100%;
-    margin-top: 15%;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -33,8 +29,46 @@ const ProjectContainer = styled.div`
   }
 `;
 
+const HeroContainer = styled.div`
+    width: 100vw;
+    margin-top: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+      flex-wrap: nowrap;
+      margin-top: 15%;
+  }
+`;
+
+const HeroSegement = styled.div` 
+  margin-bottom: 80px;
+  transition-duration: 0.3s;
+
+  :nth-child(1) {
+    width: 55%;
+    margin-right: 50px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  :nth-child(2) {
+    width: 30%;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 100%;
+      margin-left: 20px;
+    }
+  }
+`;
+
 const Container = styled.div` 
-  width: 45%;
+  width: 48%;
   margin-bottom: 80px;
   transition-duration: 0.3s;
 
@@ -42,7 +76,7 @@ const Container = styled.div`
     margin-right: 0;
 
     @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 7%;
+        margin-right: 4%;
     }
   }
 
@@ -51,48 +85,38 @@ const Container = styled.div`
 }
 `;
 
-const FeaturedImage = styled.img`
-  position: absolute;
-  max-width: 50%;
-  left: 0;
-  top: 15%;
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    position: fixed;
-    max-width: 100vw;
-  }
-`;
-
 
 export default ({ data }) => {
     let post = data.markdownRemark
     let featuredImgFluid = post.frontmatter.featuredImage.publicURL
-    let image1Fluid = post.frontmatter.image1.childImageSharp.fluid
+    /* let image1Fluid = post.frontmatter.image1.childImageSharp.fluid
     let image2Fluid = post.frontmatter.image2.childImageSharp.fluid
-    let image3Fluid = post.frontmatter.image3.childImageSharp.fluid
+    let image3Fluid = post.frontmatter.image3.childImageSharp.fluid */
     return (
-      <Layout key={post.id}>
-        <div>
-          <ProjectContainer>
-
-          <Container>
-              <FeaturedImage 
+      <>
+      <HeroContainer>
+          <HeroSegement>
+              <img 
               src={featuredImgFluid} 
               alt={post.frontmatter.title} 
               style={{ 
-                boxShadow: '0px 4px 10px 0 #efefef'}}/>
-            </Container>
+                boxShadow: '0px 4px 10px 0 #dedede'}}/>
+            </HeroSegement>
 
-            <Container> 
+            <HeroSegement> 
               <Heading style={{marginTop: '0'}}>{post.frontmatter.title}</Heading>
               <DescriptionText>{post.frontmatter.type} - {post.frontmatter.year} </DescriptionText>
               <DescriptionText>{post.frontmatter.role1} / {post.frontmatter.role2} / {post.frontmatter.role3} </DescriptionText>
-              <CallToAction dangerouslySetInnerHTML={{ __html: post.html }}></CallToAction>
-            </Container>
-
+              {/* <CallToAction dangerouslySetInnerHTML={{ __html: post.html }}></CallToAction> */}
+            </HeroSegement>
+        </HeroContainer>
+       
+      <Layout key={post.id}>
+        <div>
+            <ProjectContainer>
            
             <Container>
-              <WorkSubHeading>About this Project</WorkSubHeading>
+              <WorkSubHeading>about this project</WorkSubHeading>
             </Container>
 
             <Container>
@@ -100,32 +124,10 @@ export default ({ data }) => {
               <Paragraph>{post.frontmatter.results}</Paragraph>
             </Container>
             
-           <Container>
-               <Img 
-                fluid={image1Fluid} 
-                alt="First example photo"
-                style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef'}}/> 
-            </Container>
-
-            <Container>
-               <Img 
-                fluid={image2Fluid} 
-                alt="Second example photo"
-                style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef'}}/> 
-            </Container>
-
-            <Container>
-               <Img 
-                fluid={image3Fluid} 
-                alt="Third example photo"
-                style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef'}}/> 
-            </Container>
           </ProjectContainer>
           </div>
       </Layout>
+      </>
     )
 }
 

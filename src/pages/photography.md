@@ -1,6 +1,6 @@
 ---
-title: Photography
-featuredImage: ../images/photography.png
+title: Photography Journal
+featuredImage: ../images/features/photography.png
 year: 2020
 type: Photography
 objective: To take a break from digital projects, I enjoy going outdoors and exploring. I have the most experience in landscape photography but have done portrait photography and photojournalism. Taking the time to take photographs develops my skills in composition and editing in Adobe Photoshop and Lightroom.

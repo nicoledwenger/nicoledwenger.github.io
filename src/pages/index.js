@@ -90,7 +90,6 @@ const ToRight = keyframes`
 
 const Line = styled.span`
   display: block;
-  margin: 0 auto;
   height: 4px;
   background-color: #0077ff;
   width: 0%;
@@ -201,7 +200,7 @@ const IndexPage = ({ data }) => {
     
 
     <SubHeading id="works" style={{marginTop: '25%'}}>Selected works</SubHeading>
-    <WorkContainer>
+    {/* <WorkContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectContainer key={node.id}>
             <ProjectOverlayContainer>
@@ -229,9 +228,9 @@ const IndexPage = ({ data }) => {
             </ProjectOverlayContainer>
             </ProjectContainer>
         ))}
-    </WorkContainer>
+    </WorkContainer> */}
 
-    {/* <WorkContainer>
+    <WorkContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectContainer key={node.id}>
             <WorkLink to={node.fields.slug}>
@@ -252,7 +251,7 @@ const IndexPage = ({ data }) => {
             </WorkLink>
             </ProjectContainer>
         ))}
-    </WorkContainer> */}
+    </WorkContainer>
     
     <About />
     <Resume />

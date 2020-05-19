@@ -8,8 +8,7 @@ const WorkSubHeading = styled.h2`
     font-size: 4rem;
     color: #d2d2d2;
     width: 450px;
-    margin-top: 20px;
-    line-height: 80px;
+    line-height: 90px;
 
   @media (max-width: ${breakpoints.mobileMax}) {
     font-size: 2.25rem;
