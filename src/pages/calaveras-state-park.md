@@ -13,8 +13,4 @@ image2: ../images/calaveras_todo.png
 image3: ../images/calaveras_gallery.png
 ---
 
-
-<a href="https://nicoledwenger.com/websites/calaveras/index.html" style="color: #212529;">live site</a>
-<br/>
-<br/>
 <a href="https://github.com/nicoledwenger/CalaverasStatePark" style="color: #212529;">repository</a>

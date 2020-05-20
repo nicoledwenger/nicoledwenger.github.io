@@ -66,6 +66,17 @@ const WorkLink = styled(Link)`
 `;
 
 const WorkContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100vw;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+/* const WorkContainer = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +85,7 @@ const WorkContainer = styled.div`
       display: block;
       flex-wrap: nowrap;
   }
-`;
+`; */
 
 const ToRight = keyframes`
   0%{
@@ -86,14 +97,6 @@ const ToRight = keyframes`
     opacity: 1;
     width: 300px;
   }
-`;
-
-const Line = styled.span`
-  display: block;
-  height: 4px;
-  background-color: #0077ff;
-  width: 0%;
-  transition: width 0.5s ease;
 `;
 
 const DecorationLine = styled.span`
@@ -113,30 +116,7 @@ const DecorationLine = styled.span`
   }
 `;
 
-const ProjectOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  background-color: rgba(225,225,225,0.6);
-`;
-
-const ProjectText = styled.div`
-  margin-top: 20%;
-  text-align: center;
-`;
-
-const ProjectOverlayContainer = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
-const ProjectContainer = styled.div` 
+/* const ProjectContainer = styled.div` 
   width: 45%;
   margin-bottom: 40px;
   margin-top: 0px;
@@ -182,6 +162,97 @@ const ProjectContainer = styled.div`
     
   }
   
+`; */
+
+const Segment = styled.div` 
+  margin-bottom: 50px;
+  transition-duration: 0.3s;
+
+  :nth-child(1) {
+    width: 45%;
+    margin-right: 50px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  :nth-child(2) {
+    width: 30%;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 100%;
+      margin-left: 20px;
+    }
+  }
+`;
+
+const ProjectContainer = styled.div` 
+  flex: 0 0 auto;
+  width: 100%;
+
+  :hover {
+
+    img {
+        transform: scale(1.03);
+        transition-duration: 0.3s;
+    }
+  }
+`;
+
+const ProjectSegment = styled.div`
+    width: 100vw;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+      flex-wrap: nowrap;
+      margin-top: 15%;
+  }
+`;
+
+const DescriptionText = styled(Paragraph)`
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #212529;
+`;
+
+const TransitionNotifier = styled(Paragraph)`
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+`;
+
+const ToLeft = keyframes`
+  0%{
+    width: 112px;
+  }
+
+  49%{
+    width: 0;
+  }
+
+  50% {
+    width: 0;
+  }
+
+  100%{
+    width: 112px;
+  }
+`;
+
+
+const AnimationLine = styled.span`
+  height: 4px;
+  background-color: #0077ff;
+  transition: width 0.5s ease;
+  animation: 3s ease-in-out 0s 1 normal forwards running ${ToLeft};
+  animation-iteration-count: infinite;
 `;
 
 const IndexPage = ({ data }) => {
@@ -199,7 +270,7 @@ const IndexPage = ({ data }) => {
     
     
 
-    <SubHeading id="works" style={{marginTop: '25%'}}>Selected works</SubHeading>
+    <SubHeading id="works" style={{marginTop: '25%'}}>Projects</SubHeading>
     {/* <WorkContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectContainer key={node.id}>
@@ -233,25 +304,34 @@ const IndexPage = ({ data }) => {
     <WorkContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectContainer key={node.id}>
+           
             <WorkLink to={node.fields.slug}>
-             <Img 
-                fluid={node.frontmatter.featuredImage.childImageSharp.fluid} 
-                alt={node.frontmatter.title}
-                style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}
+            <ProjectSegment>
+              <Segment>
+                <img 
+                  src={node.frontmatter.featuredImage.publicURL} 
+                  alt={node.frontmatter.title}
+                  style={{ 
+                    boxShadow: '0px 4px 10px 0 #efefef'}}
                  /> 
+              </Segment>
+              
+              <Segment>
                 <WorkTitle>
-                {node.frontmatter.title}{" "}
-              </WorkTitle>
-              <Paragraph>
-                View Project
-                  <Line></Line>
-              </Paragraph>
+                  {node.frontmatter.title}{" "}
+                </WorkTitle>
+                <DescriptionText>
+                  {node.frontmatter.type} - {node.frontmatter.year}
+                </DescriptionText>
+              </Segment>
+              </ProjectSegment>
             </WorkLink>
+           
             </ProjectContainer>
         ))}
     </WorkContainer>
+    <AnimationLine/>
+    <TransitionNotifier>&#60; scroll &#62;</TransitionNotifier>
     
     <About />
     <Resume />
@@ -269,13 +349,10 @@ export const query = graphql`
           html
           frontmatter {
             title
+            year
+            type
             featuredImage {
               publicURL
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
             }
           }
           fields {

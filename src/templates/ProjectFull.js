@@ -14,6 +14,10 @@ const DescriptionText = styled(Paragraph)`
   font-style: italic;
   font-size: 0.85rem;
   margin-bottom: 5px;
+
+  :nth-last-child(2) {
+    margin-bottom: 20px;
+  }
 `;
 
 const ProjectContainer = styled.div`
@@ -107,7 +111,7 @@ export default ({ data }) => {
               <Heading style={{marginTop: '0'}}>{post.frontmatter.title}</Heading>
               <DescriptionText>{post.frontmatter.type} - {post.frontmatter.year} </DescriptionText>
               <DescriptionText>{post.frontmatter.role1} / {post.frontmatter.role2} / {post.frontmatter.role3} </DescriptionText>
-              {/* <CallToAction dangerouslySetInnerHTML={{ __html: post.html }}></CallToAction> */}
+              <CallToAction dangerouslySetInnerHTML={{ __html: post.html }}></CallToAction>
             </HeroSegement>
         </HeroContainer>
        

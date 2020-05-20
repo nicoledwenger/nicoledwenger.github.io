@@ -13,7 +13,4 @@ image2: ../images/corvette_changes.png
 image3: ../images/corvette_c8.png
 ---
 
-<a href="https://nicoledwenger.com/websites/corvette/index.html" style="color: #212529;">live site</a>
-<br/>
-<br/>
 <a href="https://github.com/nicoledwenger/CorvetteEncyclopedia" style="color: #212529;">repository</a>
