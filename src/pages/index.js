@@ -269,7 +269,6 @@ export const query = graphql`
       edges {
         node {
           id
-          html
           frontmatter {
             title
             year
