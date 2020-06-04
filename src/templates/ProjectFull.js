@@ -2,13 +2,12 @@ import React from "react"
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Heading from '../components/text/Heading'
-import Img from 'gatsby-image'
 import styled from "styled-components"
 import { breakpoints } from '../components/Breakpoints'
 import Paragraph from '../components/text/Paragraph'
 import CallToAction from "../components/text/CallToAction"
 import WorkSubHeading from '../components/text/WorkSubHeading'
-
+import SEO from "../components/seo"
 
 const DescriptionText = styled(Paragraph)`
   font-style: italic;
@@ -89,15 +88,34 @@ const Container = styled.div`
 }
 `;
 
+const ImageContainer = styled.div`
+  align-items: center;
+  width: 100vw;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  padding-top: 50px;
+  text-align: center;
+
+  > img {
+    margin-bottom: 80px;
+    width: 70%;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+`;
 
 export default ({ data }) => {
     let post = data.markdownRemark
     let featuredImgFluid = post.frontmatter.featuredImage.publicURL
-    /* let image1Fluid = post.frontmatter.image1.childImageSharp.fluid
-    let image2Fluid = post.frontmatter.image2.childImageSharp.fluid
-    let image3Fluid = post.frontmatter.image3.childImageSharp.fluid */
+    let image1Fluid = post.frontmatter.image1.publicURL
+    let image2Fluid = post.frontmatter.image2.publicURL
+    let image3Fluid = post.frontmatter.image3.publicURL
     return (
       <>
+      <SEO title={`Projects | ${post.frontmatter.title}`}/>
       <HeroContainer>
           <HeroSegement>
               <img 
@@ -129,8 +147,17 @@ export default ({ data }) => {
             </Container>
             
           </ProjectContainer>
-          </div>
+        </div>
+        
       </Layout>
+
+    
+      <ImageContainer>
+        <img src={image1Fluid} alt={`${post.frontmatter.title} - example one`} />
+        <img src={image2Fluid} alt={`${post.frontmatter.title} - example two`} />
+        <img src={image3Fluid} alt={`${post.frontmatter.title} - example three`} />       
+      </ImageContainer>
+      
       </>
     )
 }
@@ -153,25 +180,13 @@ export const query = graphql`
           publicURL
         }
         image1 {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
         image2 {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
         image3 {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
       }
     }

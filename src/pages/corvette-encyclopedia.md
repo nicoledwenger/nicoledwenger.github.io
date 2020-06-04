@@ -8,9 +8,9 @@ role1: Designer
 role2: Developer
 role3: Researcher
 results: This project was completed in a month utilizing HTML, CSS, and jQuery. This site met all evaluation criteria in fields relating to 508 compliancy, aesthetics, and development. The next steps in this site would be to expand its current application and simplify the site by turning it into a React application.
-image1: ../images/corvette_c1.png
-image2: ../images/corvette_changes.png
-image3: ../images/corvette_c8.png
+image1: ../images/corvette/corvette.png
+image2: ../images/corvette/corvette_c1.png
+image3: ../images/corvette/corvette_c8.png
 ---
 
 <a href="https://github.com/nicoledwenger/CorvetteEncyclopedia" style="color: #212529;">repository</a>
