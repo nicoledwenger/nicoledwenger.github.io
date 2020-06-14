@@ -209,8 +209,8 @@ const IndexPage = ({ data }) => {
       <NameTitle>Nicole Dwenger</NameTitle>
       <DecorationLine/>
       <Fade bottom>
-        <Heading>Front end <span>developer</span> and <span>designer</span> with a <span>strategic communication</span> background</Heading>
-        <SubHeading>Currently a social media analytics intern at General Motors</SubHeading>
+        <Heading>Front end <span>developer</span> and <span>designer</span> with a background in <span>strategic communication</span></Heading>
+        <SubHeading>Currently a social CoE intern at General Motors</SubHeading>
       </Fade>
     </div>
     <SocialButtons />
