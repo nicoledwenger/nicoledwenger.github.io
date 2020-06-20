@@ -32,6 +32,7 @@ const ProfilePhoto = styled.img`
     right: 0;
     margin-left: 0px;
     margin-top: 10px;
+    height: auto;
   }
 
   @media (min-width: ${breakpoints.mobileMax}) {
@@ -210,7 +211,7 @@ const IndexPage = ({ data }) => {
       <DecorationLine/>
       <Fade bottom>
         <Heading>Front end <span>developer</span> and <span>designer</span> with a background in <span>strategic communication</span></Heading>
-        <SubHeading>Currently a social CoE intern at General Motors</SubHeading>
+        <SubHeading>Currently a social center of expertise intern at General Motors</SubHeading>
       </Fade>
     </div>
     <SocialButtons />
