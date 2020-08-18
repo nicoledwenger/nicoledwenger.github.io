@@ -110,11 +110,15 @@ const Resume = () => (
         
         <ResumeHeader>Experience</ResumeHeader>
         <ResumeWrapper>
+        <ResumeYear>June 2020 - Aug 2020</ResumeYear>
+        <ResumeText><strong>Social Center of Expertise Intern</strong> <br />General Motors</ResumeText>
+        <ResumeSubText>Detroit, MI <br /> Analyzed customer sentiments and presented opportunities to polish social care</ResumeSubText>
+
         <ResumeYear>Aug 2019 - June 2020</ResumeYear>
         
             <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
-            Update WordPress and Sharepoint pages while meeting branding standards and client requests</ResumeSubText>
+            Updated WordPress and Sharepoint pages while meeting branding standards and client requests</ResumeSubText>
         
 
         <ResumeYear>Aug 2019 - May 2020</ResumeYear>
