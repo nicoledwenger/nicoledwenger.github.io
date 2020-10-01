@@ -211,7 +211,7 @@ const IndexPage = ({ data }) => {
       <DecorationLine/>
       <Fade bottom>
         <Heading>Front end <span>developer</span> and <span>designer</span> with a background in <span>strategic communication</span></Heading>
-        <SubHeading>Currently working as a Global Connected Customer Experience intern at General Motors</SubHeading>
+        <SubHeading>Currently working as the Lead Market Research Analyst for <a href="https://www.boilercom.com/" target="_blank">Boiler Communication</a></SubHeading>
       </Fade>
     </div>
     <SocialButtons />
