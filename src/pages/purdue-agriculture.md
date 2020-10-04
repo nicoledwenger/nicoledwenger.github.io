@@ -1,6 +1,6 @@
 ---
 title: Purdue Agriculture Media Outreach
-featuredImage: ../images/features/purdueagriculture.jpg
+featuredImage: ../images/mockups/purdue_agriculture_mockup.jpg
 year: 2020
 type: Web
 objective: This site is designed to attract media attention to Purdue Agriculture experts. I was tasked to develop the site as a web intern for Purdue Agriculture. To carry out this site redesign, changes were made to align with new branding changed throughout Purdue University. The core components of the development were to create an easy-to-edit site that focuses on search engine keywords.
