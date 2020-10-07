@@ -92,8 +92,6 @@ const ImageContainer = styled.div`
   align-items: center;
   width: 100vw;
   margin: 0 auto;
-  background-color: #f2f2f2;
-  padding-top: 50px;
   text-align: center;
 
   > img {
@@ -102,7 +100,6 @@ const ImageContainer = styled.div`
 
     @media (max-width: ${breakpoints.mobileMax}) {
       width: 100%;
-      padding: 20px;
     }
   }
 `;
@@ -112,7 +109,6 @@ export default ({ data }) => {
     let featuredImgFluid = post.frontmatter.featuredImage.publicURL
     let image1Fluid = post.frontmatter.image1.publicURL
     let image2Fluid = post.frontmatter.image2.publicURL
-    let image3Fluid = post.frontmatter.image3.publicURL
     return (
       <>
       <SEO 
@@ -144,19 +140,46 @@ export default ({ data }) => {
 
             <Container>
               <Paragraph>{post.frontmatter.objective}</Paragraph>
+              <Paragraph>{post.frontmatter.approach}</Paragraph>
+            </Container>
+            
+          </ProjectContainer>
+          
+        </div>
+        
+      </Layout>
+
+      <ImageContainer>
+        <img src={image1Fluid} 
+          alt={`${post.frontmatter.title} - example one`}
+          style={{ 
+            boxShadow: '0px 4px 10px 0 #dedede'}} />
+      </ImageContainer>
+
+        <Layout key={post.id}>
+        <div>
+            <ProjectContainer>
+           
+            <Container>
+              <WorkSubHeading>project results</WorkSubHeading>
+            </Container>
+
+            <Container>
               <Paragraph>{post.frontmatter.results}</Paragraph>
             </Container>
             
           </ProjectContainer>
+          
         </div>
         
       </Layout>
 
     
       <ImageContainer>
-        <img src={image1Fluid} alt={`${post.frontmatter.title} - example one`} />
-        <img src={image2Fluid} alt={`${post.frontmatter.title} - example two`} />
-        <img src={image3Fluid} alt={`${post.frontmatter.title} - example three`} />       
+        <img src={image2Fluid} 
+            alt={`${post.frontmatter.title} - example two`}
+            style={{ 
+              boxShadow: '0px 4px 10px 0 #dedede'}} />
       </ImageContainer>
       
       </>
@@ -171,6 +194,7 @@ export const query = graphql`
       frontmatter {
         type
         objective
+        approach
         results
         role1
         role2
@@ -184,9 +208,6 @@ export const query = graphql`
           publicURL
         }
         image2 {
-          publicURL
-        }
-        image3 {
           publicURL
         }
       }
