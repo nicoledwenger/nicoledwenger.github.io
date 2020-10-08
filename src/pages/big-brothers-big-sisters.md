@@ -13,4 +13,4 @@ image1: ../images/full-page/BBBS-home.jpg
 image2: ../images/full-page/full-mockup/BBBS-other.jpg
 ---
 
-<a href="https://xd.adobe.com/view/16e50d92-cd01-4f8d-42c1-aaa34e1cfcac-60d4/?fullscreen" style="color: #212529;">live design</a>
+<a href="https://docs.google.com/document/d/1FWpe2LgoDtx01lvWdCWG117jOK7YNHqqwP63jwK2umM/edit?usp=sharing" style="color: #212529;">final document</a>
