@@ -3,7 +3,7 @@ title: Chevrolet Corvette Encyclopedia
 featuredImage: ../images/mockups/corvette_mobile_mockup.jpg
 year: 2019
 type: Web
-objective: This project was created as a course assignment in CGT 353 in which we had to build an interactive and dynamic site of our choice. As a budding car enthusiast, I was inspired to create a site that balanced design and technical information without being too overwhelming. My overall objective was to create a different take on traditional wiki sites. When researching the different generations of Corvettes, it was overwhelming how much text was presented. Often images were very small and the sites appeared dull and out of date. Therefore, I wanted to have a more modern appearance.
+objective: This project was created as a course assignment in CGT 353 - Principles in Interactive Media in which we had to build an interactive and dynamic site of our choice. As a budding car enthusiast, I was inspired to create a site that balanced design and technical information without being too overwhelming. My overall objective was to create a different take on traditional wiki sites. When researching the different generations of Corvettes, it was overwhelming how much text was presented. Often images were very small and the sites appeared dull and out of date. Therefore, I wanted to have a more modern appearance.
 role1: Designer
 role2: Developer
 role3: Researcher

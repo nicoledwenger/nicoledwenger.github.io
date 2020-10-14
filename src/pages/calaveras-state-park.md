@@ -3,7 +3,7 @@ title: Calaveras State Park
 featuredImage: ../images/mockups/calaveras_phone_mockup.jpg
 year: 2019
 type: Web
-objective: This project was created as a course assignment in CGT 353 in which we had to build an interactive and dynamic site of our choice within a team. My team and I chose to recreate a California state park with a newer, modern design. As state and national parks in the United States have a simplistic, consistent appearance across all parks, we wanted to create a more specialized experience to attract visitors. We wanted to provide a unique experience to visitors where they could observe photos of their destination as well as factual information.
+objective: This project was created as a course assignment in CGT 353 - Principles of Interactive Media in which we had to build an interactive and dynamic site of our choice within a team. My team and I chose to recreate a California state park with a newer, modern design. As state and national parks in the United States have a simplistic, consistent appearance across all parks, we wanted to create a more specialized experience to attract visitors. We wanted to provide a unique experience to visitors where they could observe photos of their destination as well as factual information.
 role1: Designer
 role2: Developer
 role3: Team Lead

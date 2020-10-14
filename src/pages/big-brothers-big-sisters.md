@@ -3,7 +3,7 @@ title: BBBS of Greater Lafayette
 featuredImage: ../images/mockups/BBBS_desktop_mockup.jpg
 year: 2020
 type: Web
-objective: This site redesign was completed as part of a larger brand awareness campaign for COM 353 at Purdue University to assist Big Brothers Big Sisters of Greater Lafayette. The purpose of the site redesign was to attract more Bigs through SEO and solidify their brand image. The intentions of this redesign focused on recruiting more Big volunteers for the organization through bold fonts, colors, and strong language. A large portion of the redesign centered around new navigation and language development to emphasize the importance of a Big/Little pairing for BBBS.
+objective: This site redesign was completed as part of a larger brand awareness campaign for COM 353 - Problems in Public Relations at Purdue University to assist Big Brothers Big Sisters of Greater Lafayette. The purpose of the site redesign was to attract more Bigs through SEO and solidify their brand image. The intentions of this redesign focused on recruiting more Big volunteers for the organization through bold fonts, colors, and strong language. A large portion of the redesign centered around new navigation and language development to emphasize the importance of a Big/Little pairing for BBBS.
 role1: Designer
 role2: Team Lead
 role3: Strategist

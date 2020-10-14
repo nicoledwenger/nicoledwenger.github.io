@@ -3,7 +3,7 @@ title: YWCA of Greater Lafayette
 featuredImage: ../images/mockups/ywca_mockup.jpg
 year: 2019
 type: Branding
-objective: This branding guide was created for ENGL 419 at Purdue University to benefit an upcoming art gallery for YWCA of Greater Lafayette. The art gallery was to display artwork created by members of YWCA to tell the experiences they’ve encountered and overcome. The guide was created to lead the rest of the class in their final deliverables; therefore, the language and feeling of the gallery was to be strong, yet sensitive. I and another classmate collaborated in creating an outline for our branding strategies. 
+objective: This branding guide was created for ENGL 419 - Multimedia Writing at Purdue University to benefit an upcoming art gallery for YWCA of Greater Lafayette. The art gallery was to display artwork created by members of YWCA to tell the experiences they’ve encountered and overcome. The guide was created to lead the rest of the class in their final deliverables; therefore, the language and feeling of the gallery was to be strong, yet sensitive. I and another classmate collaborated in creating an outline for our branding strategies. 
 role1: Branding
 role2: Designer
 role3: Team Lead

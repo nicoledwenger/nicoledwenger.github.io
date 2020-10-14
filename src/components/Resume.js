@@ -7,6 +7,7 @@ import "typeface-muli"
 import { breakpoints } from "./Breakpoints"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
+import CallToAction from "./text/CallToAction"
 
 const ResumeHeader = styled.h3`
     font-family: "Open Sans";
@@ -105,6 +106,7 @@ const Container = styled.div`
 const Resume = () => (
     <div id="resume" style={{marginTop: '20%'}}>
         <SubHeading>Resume</SubHeading>
+        <CallToAction><a href={`Dwenger-Nicole-FED-Resume.pdf`} download>Download PDF</a></CallToAction>
         <ResumeContainer>
         <Container>
         
@@ -169,7 +171,7 @@ const Resume = () => (
         <ResumeYear>Aug 2019 - Present</ResumeYear>
         
             <ResumeText><strong>Public Relations Student Society of America</strong></ResumeText>
-            <ResumeSubText>Directory of Internal Communication <br/>
+            <ResumeSubText>Director of Internal Communication <br/>
             Designed, developed, and maintained a website to house resources and monthly modules for members</ResumeSubText>
         </ResumeWrapper>
 
@@ -240,7 +242,6 @@ const Resume = () => (
                 </Paragraph>
             </div>
         </LanguageTable>
-
     </div>
 )
 
