@@ -104,7 +104,7 @@ const Container = styled.div`
 `;
 
 const Resume = () => (
-    <div id="resume" style={{marginTop: '20%'}}>
+    <div id="resume" style={{marginTop: '10%'}}>
         <SubHeading>Resume</SubHeading>
         <CallToAction><a href={`Dwenger-Nicole-FED-Resume.pdf`} download>Download PDF</a></CallToAction>
         <ResumeContainer>
@@ -177,6 +177,11 @@ const Resume = () => (
 
         <ResumeHeader>Honors and Awards</ResumeHeader>
         <ResumeWrapper>
+        <ResumeYear>Nov 2020</ResumeYear>
+    
+        <ResumeText><strong>Mortar Board Design Winner</strong></ResumeText>
+        <ResumeSubText>Purdue Mortar Board</ResumeSubText>
+
         <ResumeYear>Aug 2020</ResumeYear>
     
             <ResumeText><strong>Purdue OUR Scholars</strong></ResumeText>
