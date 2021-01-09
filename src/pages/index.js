@@ -550,7 +550,7 @@ const IndexPage = () => {
 
           {/* YWCA of GL */}
           <ProjectContainer>
-            <WorkLink to="/YWCA">
+            <WorkLink to="/YWCAGallery">
             <Container>
                 <img 
                   src={YWCA} 

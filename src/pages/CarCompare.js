@@ -236,7 +236,7 @@ const HankDev = () => {
 
         <ProjectContainer>
           <ButtonContainer>
-            <Button to="/YWCA">
+            <Button to="/YWCAGallery">
             <img src={prevProject} 
                   alt="YWCA pages"
                   style={{ 

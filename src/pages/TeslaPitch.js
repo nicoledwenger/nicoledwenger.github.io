@@ -224,7 +224,7 @@ const TeslaPitch = () => {
             </ButtonContainer>
 
             <ButtonContainer>
-            <Button to="/YWCA">
+            <Button to="/YWCAGallery">
             <img src={nextProject} 
                   alt="YWCA pages"
                   style={{ 

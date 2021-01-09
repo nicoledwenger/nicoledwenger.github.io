@@ -154,7 +154,7 @@ const YWCA = () => {
                   Adobe Illustrator
                 </Paragraph>
               </RoleTable>
-              <CallToAction><a href="https://issuu.com/ndwenge/docs/gallery-branding-guide" style={{color: '#212529'}}>repository</a></CallToAction>
+              <CallToAction><a href="https://issuu.com/ndwenge/docs/gallery-branding-guide" style={{color: '#212529'}}>live document</a></CallToAction>
             </HeroSegement>
         </HeroContainer>
        
