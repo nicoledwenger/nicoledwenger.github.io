@@ -332,8 +332,8 @@ const IndexPage = () => {
 
    
     <WorkContainer style={{marginTop: '10%'}}>
-      {/* Car Compare */}
-      <ProjectContainer>
+          {/* Car Compare */}
+          <ProjectContainer>
             <WorkLink to="/CarCompare">
             <Container>
                 <img 
@@ -359,8 +359,8 @@ const IndexPage = () => {
             </WorkLink>
             </ProjectContainer>
 
-      {/* Co-Curricular */}
-      <ProjectContainer>
+          {/* Co-Curricular */}
+          <ProjectContainer>
             <WorkLink to="/CoCurricular">
             <Container>
                 <img 
