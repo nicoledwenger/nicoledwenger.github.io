@@ -217,7 +217,7 @@ const CalaverasStatePark = ({data}) => {
       </ImageContainer>
       
       <Layout>
-        <WorkSubHeading style={{marginTop: '5%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
+        <WorkSubHeading style={{marginTop: '18%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
 
         <ProjectContainer>
           <ButtonContainer>
