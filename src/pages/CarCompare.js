@@ -1,4 +1,7 @@
 import React from "react"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from "../components/layout"
 import Heading from '../components/text/Heading'
 import styled from "styled-components"
@@ -6,18 +9,12 @@ import { breakpoints } from '../components/Breakpoints'
 import Paragraph from '../components/text/Paragraph'
 import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import featuredImgFluid from '../images/mockups/car_compare_desktop_mockup.jpg'
-import homePage from '../images/full-page/full-mockup/car-compare-full.jpg'
-import otherPage from '../images/full-page/full-mockup/car-compare-collage.jpg'
-import prevProject from '../images/mockups/ywca_mockup.jpg'
-import nextProject from '../images/mockups/prssa_desktop_mockup.jpg'
 import Button from '../components/UI/Button'
 import RoleTable from '../components/UI/RoleTable'
-import wireframe from '../images/wireframes/car-compare.jpg'
 
 const ProjectContainer = styled.div`
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -87,12 +84,11 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   align-items: center;
   width: 100vw;
-  margin: 0 auto;
   text-align: center;
 
-  > img {
-    margin-bottom: 80px;
+  > .gatsby-image-wrapper {
     width: 70%;
+    margin: 0 auto;
 
     @media (max-width: ${breakpoints.mobileMax}) {
       width: 100%;
@@ -130,7 +126,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const HankDev = () => {
+const CarCompare = ({data}) => {
 
   return (
     <>
@@ -138,11 +134,7 @@ const HankDev = () => {
         title={`Projects | Car Compare`} />
       <HeroContainer>
           <HeroSegement>
-              <img 
-              src={featuredImgFluid} 
-              alt="Car Compare Mockup" 
-              style={{ 
-                boxShadow: '0px 4px 10px 0 #dedede'}}/>
+            <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Car Compare mockup" />
             </HeroSegement>
 
             <HeroSegement> 
@@ -172,11 +164,8 @@ const HankDev = () => {
         </HeroContainer>
       
       <ImageContainer>
-      <Paragraph>Before developing, every project consists of preliminary steps. Wireframes are foundational in my planning stage to understand user interactions and page requirements to ensure I develop a functional application.</Paragraph>
-        <img src={wireframe} 
-          alt="Car Comparison wireframe"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+        <Paragraph>Before developing, every project consists of preliminary steps. Wireframes are foundational in my planning stage to understand user interactions and page requirements to ensure I develop a functional application.</Paragraph>
+        <Img fluid={data.wireframe.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Car Compare wireframe" />
       </ImageContainer>
        
       <Layout>
@@ -199,10 +188,7 @@ const HankDev = () => {
       </Layout>
 
       <ImageContainer>
-        <img src={homePage} 
-          alt="Car Compare Home Page Mockup"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+        <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Car Compare homepage mockup" />
       </ImageContainer>
 
         <Layout>
@@ -225,10 +211,7 @@ const HankDev = () => {
 
     
       <ImageContainer>
-        <img src={otherPage} 
-            alt="Car Compare mockups"
-            style={{ 
-              boxShadow: '0px 4px 10px 0 #dedede'}} />
+        <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Car Compare mockups" />
       </ImageContainer>
 
       <Layout>
@@ -237,19 +220,13 @@ const HankDev = () => {
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/YWCAGallery">
-            <img src={prevProject} 
-                  alt="YWCA pages"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+              <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="YWCA pages" />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/CoCurricular">
-            <img src={nextProject} 
-                  alt="PRSSA home Mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+              <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="PRSSA home mockup" />
             </Button>
             </ButtonContainer>
         </ProjectContainer>
@@ -259,4 +236,57 @@ const HankDev = () => {
   )
 }
 
-export default HankDev
+export default CarCompare
+
+export const query = graphql`
+  query {
+    featuredImgFluid: file(relativePath: { eq: "mockups/car_compare_desktop_mockup.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 792, maxHeight: 594) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    wireframe: file(relativePath: { eq: "wireframes/car-compare.jpg" }) {
+      ...fullPageImages
+    }
+
+    homePage: file(relativePath: { eq: "full-page/full-mockup/car-compare-full.jpg" }) {
+      ...fullPageImages
+    }
+
+    otherPage: file(relativePath: { eq: "full-page/full-mockup/car-compare-collage.jpg" }) {
+      ...fullPageImages
+    }
+
+    prevProject: file(relativePath: { eq: "mockups/ywca_mockup.jpg" }) {
+      ...otherProjects
+    }
+
+    nextProject: file(relativePath: { eq: "mockups/prssa_desktop_mockup.jpg" }) {
+      ...otherProjects
+    }
+  }
+`
+
+export const fullPageImages = graphql`
+  fragment fullPageImages on File {
+    childImageSharp {
+      fluid(maxWidth: 1008, maxHeight: 748) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const otherProjects = graphql`
+  fragment otherProjects on File {
+    childImageSharp {
+      fluid(maxWidth: 542, maxHeight: 410) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+

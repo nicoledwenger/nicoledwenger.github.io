@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,15 +13,6 @@ import Resume from '../components/Resume'
 import { breakpoints } from '../components/Breakpoints'
 import Paragraph from '../components/text/Paragraph'
 import Footer from '../components/Footer'
-import HankDevelopment from '../images/mockups/hank-development-mockup.jpg'
-import PurdueAgriculture from '../images/mockups/purdue_agriculture_mockup.jpg'
-import BBBS from '../images/mockups/BBBS_desktop_mockup.jpg'
-import Calaveras from '../images/mockups/calaveras_phone_mockup.jpg'
-import CorvetteEncyclopedia from '../images/mockups/corvette_mobile_mockup.jpg'
-import TeslaPitch from '../images/mockups/tesla_mockup.jpg'
-import YWCA from '../images/mockups/ywca_mockup.jpg'
-import CoCurricular from '../images/mockups/prssa_desktop_mockup.jpg'
-import CarCompare from '../images/mockups/car_compare_desktop_mockup.jpg'
 
 const WorkTitle = styled.h3`
   font-family: "Open Sans";
@@ -100,7 +92,7 @@ const DecorationLine = styled.span`
   height: 8px;
   background-color: #0077ff;
   transition: width 0.5s ease;
-  margin-bottom: -45px;
+  margin-bottom: -15px;
   animation: 1s ease 0s 1 normal forwards running ${ToRight};
 
   @media (min-width: ${breakpoints.mobileMax}) {
@@ -159,11 +151,11 @@ const ProjectContainer = styled.div`
 
   :hover {
 
-    img {
-        transform: scale(1.03);
-        transition-duration: 0.3s;
-        filter: grayscale(0%);
-        opacity: 1;
+    .gatsby-image-wrapper{
+      transform: scale(1.03);
+      transition-duration: 0.3s;
+      filter: grayscale(0%);
+      opacity: 1;
     }
   }
 
@@ -208,102 +200,7 @@ const NameTitle = styled(SubHeading)`
     }
 `;
 
-const Sticker = styled.span`
-display: block;
-position: absolute;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-margin: auto;
-z-index: 5;
-width: 300px;
-height: 40px;
-transition: 0.2s 0.2s;
-transform: translate3d(10px, 20px, 0) scale(1.5);
-opacity: 0;
-
-.back,
-.front {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: 0.35s;
-  
-  &:before {
-    content: " ";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 300px;
-    height: 40px;
-    transition: 0.35s;
-  }
-}
-
-.front {
-  height: 0;
-  
-  .content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 300px;
-    height: 40px;
-    font-family: "Lato";
-    font-weight: 500;
-    font-size: 1rem;
-    
-    background: #0077ff;
-    color: #FFF;
-    line-height: 40px;
-    font-size: 0.8em;
-    text-align: center;
-  }
-}
-
-.back{
-  top: 40px;
-  overflow: hidden;
-  
-  &:before {
-    background-color: #d2d2d2;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.4);
-    top: 0;
-  }
-}
-`;
-
- const StickerWrapper = styled.div`
-
- box-shadow: 0 0 10px -5px #000;
- margin: auto;
- position: relative;
-
- &:hover ${Sticker} {
-   transform: translate3d(0, 0, 0) scale(1) ;
-   transition-delay: 0s;
-   opacity: 1;
-
-   .front {
-     height: 130px;
-   }
-
-   .back {
-     top: 0;
-
-     &:before {
-       top: -130px;
-     }
-   }
- }
- `;
-
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
 
   return (
     <>
@@ -317,14 +214,7 @@ const IndexPage = () => {
         <SubHeading>Currently working as the Lead Market Research Analyst for <a href="https://www.boilercom.com/" target="_blank">Boiler Communication</a></SubHeading>
         <Arrow/>
       </AppearBox>
-      {/* <StickerWrapper>
-        <Sticker>
-          <span className="front">
-            <span className="content">Seeking full-time position</span>
-          </span>
-          <span className="back"></span>
-        </Sticker>
-      </StickerWrapper> */}
+      
     </div>
    
   
@@ -336,13 +226,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/CarCompare">
             <Container>
-                <img 
-                  src={CarCompare} 
-                  alt="Car Comparison website mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+              <Img fluid={data.carCompare.childImageSharp.fluid} alt="Car Comparison website mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -363,13 +247,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/CoCurricular">
             <Container>
-                <img 
-                  src={CoCurricular} 
-                  alt="Lamb School Co-curricular PRSSA mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.coCurricular.childImageSharp.fluid} alt="Lamb School Co-Curricular mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -390,13 +268,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/HankDevelopment">
             <Container>
-                <img 
-                  src={HankDevelopment} 
-                  alt="HANK Development Mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.hankDevelopment.childImageSharp.fluid} alt="HANK Development homepage mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -417,13 +289,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/PurdueAgriculture">
             <Container>
-                <img 
-                  src={PurdueAgriculture} 
-                  alt="Purdue Agriculture Mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.purdueAgriculture.childImageSharp.fluid} alt="Purdue Agriculture mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -444,13 +310,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/BBBS">
             <Container>
-                <img 
-                  src={BBBS} 
-                  alt="BBBS of Greater Lafayette Mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.bbbs.childImageSharp.fluid} alt="BBBS of Greater Lafayette mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -471,13 +331,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/CalaverasStatePark">
             <Container>
-                <img 
-                  src={Calaveras} 
-                  alt="Calaveras State Park Mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.calaveras.childImageSharp.fluid} alt="Calaveras state park mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -498,13 +352,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/CorvetteEncyclopedia">
             <Container>
-                <img 
-                  src={CorvetteEncyclopedia} 
-                  alt="Corvette Encyclopedia Mockup"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.corvetteEncyclopedia.childImageSharp.fluid} alt="Corvette encyclopedia mockup" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -525,13 +373,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/TeslaPitch">
             <Container>
-                <img 
-                  src={TeslaPitch} 
-                  alt="Tesla Pitch Strategy Document Cover"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.teslaPitch.childImageSharp.fluid} alt="Tesla pitch strategy document cover" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -552,13 +394,7 @@ const IndexPage = () => {
           <ProjectContainer>
             <WorkLink to="/YWCAGallery">
             <Container>
-                <img 
-                  src={YWCA} 
-                  alt="YWCA of Greater Lafayette Gallery Brand Guide"
-                  style={{ 
-                    marginBottom: '2px'}}
-                 /> 
-              
+            <Img fluid={data.ywca.childImageSharp.fluid} alt="YWCA of Greater Lafayette gallery brand guide" />
               <ProjectSegment>
               <Segment>
                 <WorkTitle>
@@ -585,3 +421,54 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const projectPreview = graphql`
+  fragment projectPreview on File {
+    childImageSharp {
+      fluid(maxWidth: 754, maxHeight: 565) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const query = graphql`
+  query {
+    carCompare: file(relativePath: { eq: "mockups/car_compare_desktop_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    coCurricular: file(relativePath: { eq: "mockups/prssa_desktop_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    ywca: file(relativePath: { eq: "mockups/ywca_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    teslaPitch: file(relativePath: { eq: "mockups/tesla_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    corvetteEncyclopedia: file(relativePath: { eq: "mockups/corvette_mobile_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    calaveras: file(relativePath: { eq: "mockups/calaveras_phone_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    bbbs: file(relativePath: { eq: "mockups/BBBS_desktop_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    purdueAgriculture: file(relativePath: { eq: "mockups/purdue_agriculture_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    hankDevelopment: file(relativePath: { eq: "mockups/hank-development-mockup.jpg" }) {
+      ...projectPreview
+    }
+
+  }
+`

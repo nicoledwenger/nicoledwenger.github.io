@@ -1,6 +1,6 @@
 import React from "react"
 
-import profilePhoto from '../images/nicoledwengerprofile.jpg'
+import profile from '../images/nicoledwengerprofile.jpg'
 import SubHeading from './text/SubHeading'
 import Paragraph from './text/Paragraph'
 import styled from "styled-components"
@@ -73,7 +73,9 @@ const About = () => (
         <Paragraph>I love to challenge myself and discover the overlap between development, design, and communication. There are problems to be solved in the world that programming and communication can assist in. I will utilize this knowledge to improve people's lives by making them <strong>simpler</strong>. This is the ultimate challenge for me. <span role="img" aria-label="blue heart emoji">&#128153;</span></Paragraph>
         </Container>
         
-        <Container> <ProfilePhoto src={profilePhoto} alt="Nicole Dwenger Profile" /></Container>
+        <Container> 
+          <ProfilePhoto src={profile} alt="Nicole Dwenger profile" />
+        </Container>
        
         </ProjectContainer>
         
