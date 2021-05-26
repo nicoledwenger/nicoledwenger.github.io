@@ -214,10 +214,7 @@ const IndexPage = ({ data }) => {
               background in <span>strategic communication</span>
             </Heading>
             <SubHeading>
-              Currently working as the Lead Market Research Analyst for{" "}
-              <a href="https://www.boilercom.com/" target="_blank">
-                Boiler Communication
-              </a>
+              Currently seeking a full-time position as a web or UI developer in San Diego, California
             </SubHeading>
             <Arrow />
           </AppearBox>
